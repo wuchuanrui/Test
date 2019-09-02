@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>XVideoUIClass</class>
+ <widget class="QWidget" name="XVideoUIClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>992</width>
+    <height>617</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>XVideoUI</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton:hover
+ { 
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(120, 120, 120, 255), stop:0.495 rgba(39, 39, 39, 255), stop:0.505 rgba(39,39, 39, 255), stop:1 rgba(120, 120,120, 255));
+border: none;
+border-radius:5px;
+color: rgb(255, 255, 255);
+font: 75 12pt &quot;黑体&quot;;
+ }
+QPushButton:!hover
+ { 
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(39, 39, 39, 255), stop:0.495 rgba(120, 120, 120, 255), stop:0.505 rgba(120,120, 120, 255), stop:1 rgba(39, 39,39, 255));
+border: none;
+border-radius:5px;
+color: rgb(255, 255, 255);
+font: 75 12pt &quot;黑体&quot;;
+ }
+#XVideoUIClass
+{
+background-color: rgb(53, 53, 53);
+}
+#closeButton
+{
+font: 22pt &quot;等线&quot;;
+color: rgb(255, 255, 255);
+}
+#minSizeButton
+{
+font: 35pt &quot;等线&quot;;
+color: rgb(255, 255, 255);
+}
+QLabel
+{
+color: rgb(255, 255, 255);
+}
+#playButton
+{
+background-color: rgba(255, 255, 255, 0);
+image: url(:/XVideoUI/Resources/PlayH.png);
+}
+#playButton:!hover
+{
+background-color:rgba(255, 255, 255, 0);
+image: url(:/XVideoUI/Resources/PlayN.png);
+}
+
+#playButton:pressed
+{
+background-color:rgba(255, 255, 255, 0);
+image: url(:/XVideoUI/Resources/PlayP.png);
+}
+#pauseButton
+{
+background-color: rgba(255, 255, 255, 0);
+image: url(:/XVideoUI/Resources/PauseH.png);
+}
+#pauseButton:!hover
+{
+background-color:rgba(255, 255, 255, 0);
+image: url(:/XVideoUI/Resources/PauseN.png);
+}
+
+#pauseButton:pressed
+{
+background-color:rgba(255, 255, 255, 0);
+	image: url(:/XVideoUI/Resources/PauseP.png);
+}
+</string>
+  </property>
+  <widget class="QPushButton" name="closeButton">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>0</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>X</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="minSizeButton">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>0</y>
+     <width>30</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="XVideoWidget" name="src1Video">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>480</width>
+     <height>280</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="openButton">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>330</y>
+     <width>71</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开视频</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="playSlider">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>481</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+QSlider::groove:horizontal {
+border: 1px solid #4A708B;
+background: #C0C0C0;
+height: 5px;
+border-radius: 1px;
+padding-left:-1px;
+padding-right:-1px;
+}
+ 
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:0, y2:1, 
+    stop:0 #B1B1B1, stop:1 #c4c4c4);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #5DCCFF, stop: 1 #1874CD);
+border: 1px solid #4A708B;
+height: 10px;
+border-radius: 2px;
+}
+ 
+QSlider::add-page:horizontal {
+background: #575757;
+border: 0px solid #777;
+height: 10px;
+border-radius: 2px;
+}
+ 
+QSlider::handle:horizontal 
+{
+    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, 
+    stop:0.6 #45ADED, stop:0.778409 rgba(255, 255, 255, 255));
+ 
+    width: 11px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 5px;
+}
+ 
+QSlider::handle:horizontal:hover {
+    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0.6 #2A8BDA, 
+    stop:0.778409 rgba(255, 255, 255, 255));
+ 
+    width: 11px;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    border-radius: 5px;
+}
+ 
+QSlider::sub-page:horizontal:disabled {
+background: #00009C;
+border-color: #999;
+}
+ 
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+ 
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}
+
+</string>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="XVideoWidget" name="desVideo">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>30</y>
+     <width>480</width>
+     <height>280</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="contrastLabel">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>490</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>对比度</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="brightSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>450</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="contrastSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>490</y>
+     <width>71</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <double>3.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="brightLabel">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>447</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>亮度</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setButton">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>490</y>
+     <width>51</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>设置</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exportButton">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>330</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>导出视频</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="playButton">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>320</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pauseButton">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>320</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pyDownLabel">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>450</y>
+     <width>90</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>  高斯金字塔</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="pyUpLabel">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>480</y>
+     <width>90</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拉普拉斯金字塔</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="pyDownSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>450</y>
+     <width>98</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="pyUpSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>480</y>
+     <width>98</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>501</x>
+     <y>410</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>视频裁剪 x,y,width,height</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="XClipSpin">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>410</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>9999</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="YClipSpin">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>410</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>9999</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="widthSpin">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>410</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>9999</number>
+   </property>
+   <property name="singleStep">
+    <number>100</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="heightSpin">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>410</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>9999</number>
+   </property>
+   <property name="singleStep">
+    <number>100</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="widthLabel">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>530</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>输出视频宽度</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="heightLabel">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>570</y>
+     <width>81</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>输出视频高度</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="widthSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>530</y>
+     <width>71</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>99999</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="heightSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>570</y>
+     <width>71</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>99999</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="flipCombo">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>540</y>
+     <width>98</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>不做镜像</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>上下镜像</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>左右镜像</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>上下左右镜像</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="flipLabel">
+   <property name="geometry">
+    <rect>
+     <x>737</x>
+     <y>540</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string> 图像镜像</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="rotateCombo">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>510</y>
+     <width>98</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>90</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>180</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>270</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="rotateLabel">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>510</y>
+     <width>90</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string> 图像旋转</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>570</y>
+     <width>71</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>  图像颜色</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="grayComboBox">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>570</y>
+     <width>98</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>普通RGB图像</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>灰度图</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSpinBox" name="markXspin">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>381</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>99999</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="markYspin">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>381</y>
+     <width>57</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>99999</number>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="markAspin">
+   <property name="geometry">
+    <rect>
+     <x>800</x>
+     <y>381</y>
+     <width>117</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.400000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>1.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.100000000000000</double>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>502</x>
+     <y>382</y>
+     <width>152</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加水印 X,Y,透明度</string>
+   </property>
+  </widget>
+  <widget class="XVideoWidget" name="src02Video">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>390</y>
+     <width>352</width>
+     <height>200</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="blendPushButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>480</y>
+     <width>121</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>视频融合</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="blendDoubleSpin">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>520</y>
+     <width>51</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimum">
+    <double>0.100000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>1.000000000000000</double>
+   </property>
+   <property name="singleStep">
+    <double>0.100000000000000</double>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mergePushButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>440</y>
+     <width>121</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>视频合并</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="rightHorizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>360</y>
+     <width>481</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:horizontal{
+    height:12px;
+    border:1px solid rgba(0,0,0,50);
+    margin:0px,0px,0px,0px;
+    padding-left:15px;
+    padding-right:15px;
+}
+QScrollBar::handle:horizontal{
+    height:16px;
+    background:rgba(0,0,0,25%);
+    min-width:20;
+}
+QScrollBar::handle:horizontal:hover{
+    background:rgba(0,0,0,50%);
+    border:0px rgba(0,0,0,25%);
+}
+QScrollBar::sub-line:horizontal{
+    width:15px;
+    border-image:url(:/Res/scroll_left.png);
+    subcontrol-position:left;
+}
+QScrollBar::sub-line:horizontal:hover{
+    width:15px;
+    background:rgba(0,0,0,25%);
+    subcontrol-position:left;
+}
+QScrollBar::add-line:horizontal{
+    width:15px;
+    border-image:url(:/Res/scroll_right.png);
+    subcontrol-position:right;
+}
+QScrollBar::add-line:horizontal:hover{
+    width:15px;
+    background:rgba(0,0,0,25%);
+    subcontrol-position:right;
+}
+QScrollBar::add-page:horizontal{
+    background:rgb(255,255,255);
+}
+QScrollBar::sub-page:horizontal{
+    background:rgb(255,255,255);
+}
+</string>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="leftHorizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>481</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:horizontal{
+    height:12px;
+    border:1px solid rgba(0,0,0,50);
+    margin:0px,0px,0px,0px;
+    padding-left:15px;
+    padding-right:15px;
+}
+QScrollBar::handle:horizontal{
+    height:16px;
+    background:rgba(0,0,0,25%);
+    min-width:20;
+}
+QScrollBar::handle:horizontal:hover{
+    background:rgba(0,0,0,50%);
+    border:0px rgba(0,0,0,25%);
+}
+QScrollBar::sub-line:horizontal{
+    width:15px;
+    border-image:url(:/Res/scroll_left.png);
+    subcontrol-position:left;
+}
+QScrollBar::sub-line:horizontal:hover{
+    width:15px;
+    background:rgba(0,0,0,25%);
+    subcontrol-position:left;
+}
+QScrollBar::add-line:horizontal{
+    width:15px;
+    border-image:url(:/Res/scroll_right.png);
+    subcontrol-position:right;
+}
+QScrollBar::add-line:horizontal:hover{
+    width:15px;
+    background:rgba(0,0,0,25%);
+    subcontrol-position:right;
+}
+QScrollBar::add-page:horizontal{
+    background:rgb(255,255,255);
+}
+QScrollBar::sub-page:horizontal{
+    background:rgb(255,255,255);
+}
+
+</string>
+   </property>
+   <property name="maximum">
+    <number>999</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>520</y>
+     <width>61</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>融合透明度</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>XVideoWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>xvideowidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="XVideoUI.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>888</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>415</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>minSizeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>822</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>579</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>setPos(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>366</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playSlider</sender>
+   <signal>sliderPressed()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>sliderPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playSlider</sender>
+   <signal>sliderReleased()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>sliderRelease()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>357</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>358</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>set()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>739</x>
+     <y>429</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>exportButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Export()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>playButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Play()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pauseButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Pause()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>195</x>
+     <y>425</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Mark()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>588</x>
+     <y>337</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>165</x>
+     <y>-81</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>blendPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Blend()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>527</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>-98</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mergePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Merge()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>315</x>
+     <y>560</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>-80</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>leftHorizontalSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Left(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>327</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>-80</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rightHorizontalSlider</sender>
+   <signal>sliderMoved(int)</signal>
+   <receiver>XVideoUIClass</receiver>
+   <slot>Right(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>399</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>-73</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Open()</slot>
+  <slot>sliderPress()</slot>
+  <slot>sliderRelease()</slot>
+  <slot>setPos(int)</slot>
+  <slot>set()</slot>
+  <slot>Export()</slot>
+  <slot>Play()</slot>
+  <slot>Pause()</slot>
+  <slot>Mark()</slot>
+  <slot>Blend()</slot>
+  <slot>Merge()</slot>
+  <slot>Left(int)</slot>
+  <slot>Right(int)</slot>
+ </slots>
+</ui>
